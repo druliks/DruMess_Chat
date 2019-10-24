@@ -7,4 +7,6 @@ package ru.druliks.drumesschat.domain.type.Exception
 sealed class Failure {
     object NetworkConnectionError: Failure()
     object ServerError: Failure()
+
+    object EmailAlreadyExistError: Failure()
 }

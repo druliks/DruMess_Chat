@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#268AB5</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#898989</color>
+    <color name="darkGrey">#454e4f</color>
+
+
+    <color name="background">@color/white</color>
+
+    <color name="toolbarTextPrimary">@color/white</color>
+    <color name="toolbarTextSecondary">@color/white</color>
+
+    <color name="progressBarTint">@color/white</color>
 </resources>
