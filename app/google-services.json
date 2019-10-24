@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "540285065300",
+    "firebase_url": "https://drumess-59901.firebaseio.com",
+    "project_id": "drumess-59901",
+    "storage_bucket": "drumess-59901.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:540285065300:android:06a5c9cf74b1f2b46df5c1",
+        "android_client_info": {
+          "package_name": "ru.druliks.drumesschat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "540285065300-hnkcp0o66m9hagjgq69brs1liardodfe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL4qzzJY5WHQt5VxHGbopWiO0QwcznXMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "540285065300-hnkcp0o66m9hagjgq69brs1liardodfe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
