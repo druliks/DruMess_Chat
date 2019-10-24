@@ -2,7 +2,7 @@ package ru.druliks.drumesschat.domain.interactor
 
 import kotlinx.coroutines.*
 import ru.druliks.drumesschat.domain.type.Either
-import ru.druliks.drumesschat.domain.type.Exception.Failure
+import ru.druliks.drumesschat.domain.type.Failure
 import kotlin.coroutines.CoroutineContext
 
 /**

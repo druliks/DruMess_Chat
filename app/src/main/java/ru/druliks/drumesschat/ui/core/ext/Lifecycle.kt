@@ -1,9 +1,9 @@
-package ru.druliks.drumesschat.ui.ext
+package ru.druliks.drumesschat.ui.core.ext
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import ru.druliks.drumesschat.domain.type.Exception.Failure
+import ru.druliks.drumesschat.domain.type.Failure
 import ru.druliks.drumesschat.domain.type.HandleOnce
 
 fun <T : Any, L : LiveData<T>> LifecycleOwner.onSuccess(liveData: L, body: (T?) -> Unit) =

@@ -1,4 +1,4 @@
-package ru.druliks.drumesschat.ui.fragment
+package ru.druliks.drumesschat.ui.core
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,9 +9,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import ru.druliks.drumesschat.R
-import ru.druliks.drumesschat.domain.type.Exception.Failure
-import ru.druliks.drumesschat.ui.activity.BaseActivity
-import ru.druliks.drumesschat.ui.activity.base
+import ru.druliks.drumesschat.domain.type.Failure
+import ru.druliks.drumesschat.ui.core.navigation.Navigator
 import javax.inject.Inject
 
 //Базовый класс для выделения общего поведения фрагментов
@@ -22,7 +21,8 @@ abstract class BaseFragment : Fragment() {
     open val titleToolbar = R.string.app_name
     open val showToolbar = true
 
-
+    @Inject
+    lateinit var navigator: Navigator
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory

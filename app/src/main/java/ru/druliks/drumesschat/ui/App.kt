@@ -1,4 +1,4 @@
-package ru.druliks.drumesschat.ui.activity
+package ru.druliks.drumesschat.ui
 
 import android.app.Application
 import dagger.Component
@@ -6,8 +6,14 @@ import ru.druliks.drumesschat.presentation.injection.AppModule
 import ru.druliks.drumesschat.presentation.injection.CacheModule
 import ru.druliks.drumesschat.presentation.injection.RemoteModule
 import ru.druliks.drumesschat.presentation.injection.ViewModelModule
-import ru.druliks.drumesschat.ui.fragment.RegisterFragment
-import ru.druliks.drumesschat.ui.service.FirebaseService
+import ru.druliks.drumesschat.ui.core.navigation.RouteActivity
+
+import ru.druliks.drumesschat.ui.firebase.FirebaseService
+import ru.druliks.drumesschat.ui.home.ChatsFragment
+import ru.druliks.drumesschat.ui.home.HomeActivity
+import ru.druliks.drumesschat.ui.login.LoginFragment
+import ru.druliks.drumesschat.ui.register.RegisterActivity
+import ru.druliks.drumesschat.ui.register.RegisterFragment
 import javax.inject.Singleton
 
 
@@ -37,10 +43,14 @@ interface AppComponent {
     //activities
     fun inject(activity: RegisterActivity)
 
+    fun inject(activity: RouteActivity)
+    fun inject(activity: HomeActivity)
+
     //fragments
     fun inject(fragment: RegisterFragment)
+    fun inject(fragment: LoginFragment)
+    fun inject(fragment: ChatsFragment)
 
     //services
     fun inject(service: FirebaseService)
-
 }
