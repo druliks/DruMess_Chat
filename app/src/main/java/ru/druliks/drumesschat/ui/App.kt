@@ -9,6 +9,8 @@ import ru.druliks.drumesschat.presentation.injection.ViewModelModule
 import ru.druliks.drumesschat.ui.core.navigation.RouteActivity
 
 import ru.druliks.drumesschat.ui.firebase.FirebaseService
+import ru.druliks.drumesschat.ui.friends.FriendRequestsFragment
+import ru.druliks.drumesschat.ui.friends.FriendsFragment
 import ru.druliks.drumesschat.ui.home.ChatsFragment
 import ru.druliks.drumesschat.ui.home.HomeActivity
 import ru.druliks.drumesschat.ui.login.LoginFragment
@@ -50,6 +52,8 @@ interface AppComponent {
     fun inject(fragment: RegisterFragment)
     fun inject(fragment: LoginFragment)
     fun inject(fragment: ChatsFragment)
+    fun inject(fragment: FriendsFragment)
+    fun inject(fragment: FriendRequestsFragment)
 
     //services
     fun inject(service: FirebaseService)

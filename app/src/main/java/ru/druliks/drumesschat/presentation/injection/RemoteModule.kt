@@ -4,8 +4,10 @@ import dagger.Module
 import dagger.Provides
 import ru.druliks.drumesschat.BuildConfig
 import ru.druliks.drumesschat.data.account.AccountRemote
+import ru.druliks.drumesschat.data.friends.FriendsRemote
 import ru.druliks.drumesschat.remote.account.AccountRemoteImpl
 import ru.druliks.drumesschat.remote.core.Request
+import ru.druliks.drumesschat.remote.friends.FriendsRemoteImpl
 import ru.druliks.drumesschat.remote.service.ApiService
 import ru.druliks.drumesschat.remote.service.ServiceFactory
 import javax.inject.Singleton
@@ -22,5 +24,11 @@ class RemoteModule {
     @Provides
     fun provideAccountRemote(request: Request, apiService: ApiService): AccountRemote {
         return AccountRemoteImpl(request, apiService)
+    }
+
+    @Singleton
+    @Provides
+    fun provideFriendsRemote(request: Request, apiService: ApiService): FriendsRemote {
+        return FriendsRemoteImpl(request, apiService)
     }
 }

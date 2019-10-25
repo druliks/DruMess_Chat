@@ -22,7 +22,7 @@ import javax.inject.Inject
 //Базовый класс Activity для выделения общего поведения всех активити.
 abstract class BaseActivity : AppCompatActivity() {
 
-    abstract val fragment: BaseFragment
+    abstract var fragment: BaseFragment
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -47,9 +47,16 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onBackPressed()
     }
 
-    fun addFragment(savedInstanceState: Bundle?) {
+    fun addFragment(savedInstanceState: Bundle? = null, fragment: BaseFragment = this.fragment) {
         savedInstanceState ?: supportFragmentManager.inTransaction {
             add(R.id.fragmentContainer, fragment)
+        }
+    }
+
+    fun replaceFragment(fragment: BaseFragment) {
+        this.fragment = fragment
+        supportFragmentManager.inTransaction {
+            replace(R.id.fragmentContainer, fragment)
         }
     }
 
@@ -70,7 +77,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
-    fun handleFailure(failure: Failure?) {
+    open fun handleFailure(failure: Failure?) {
         hideProgress()
         when (failure) {
             is Failure.NetworkConnectionError -> showMessage(getString(R.string.error_network))
@@ -78,6 +85,8 @@ abstract class BaseActivity : AppCompatActivity() {
             is Failure.EmailAlreadyExistError -> showMessage(getString(R.string.error_email_already_exist))
             is Failure.AuthError -> showMessage(getString(R.string.error_auth))
             is Failure.TokenError -> navigator.showLogin(this)
+            is Failure.AlreadyFriendError -> showMessage(getString(R.string.error_already_friend))
+            is Failure.AlreadyRequestedFriendError -> showMessage(getString(R.string.error_already_requested_friend))
         }
     }
 
