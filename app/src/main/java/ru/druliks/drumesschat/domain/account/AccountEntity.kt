@@ -5,13 +5,14 @@ import com.google.gson.annotations.SerializedName
 //Модельный класс, содержащий данные аккуанта
 class AccountEntity (
     @SerializedName("user_id")
-    val id: Long,
-    val name: String,
-    val email: String,
+    var id: Long,
+    var name: String,
+    var email: String,
     @SerializedName("token")
-    val token: String,
-    val status: String,
+    var token: String,
+    var status: String,
     @SerializedName("user_date")
-    val userDate: Long,
-    val image: String
+    var userDate: Long,
+    var image: String,
+    var password: String
 )

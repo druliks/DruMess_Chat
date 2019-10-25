@@ -5,6 +5,7 @@ import kotlinx.android.synthetic.main.item_friend_request.view.*
 import ru.druliks.drumesschat.R
 import ru.druliks.drumesschat.domain.friends.FriendEntity
 import ru.druliks.drumesschat.ui.core.BaseAdapter
+import ru.druliks.drumesschat.ui.core.GlideHelper
 
 open class FriendRequestsAdapter : BaseAdapter<FriendRequestsAdapter.FriendRequestViewHolder>() {
     override val layoutRes = R.layout.item_friend_request
@@ -28,6 +29,7 @@ open class FriendRequestsAdapter : BaseAdapter<FriendRequestsAdapter.FriendReque
 
 
             (item as? FriendEntity)?.let {
+                GlideHelper.loadImage(view.context, it.image, view.imgPhoto, R.drawable.ic_account_circle)
                 view.tvName.text = it.name
             }
 

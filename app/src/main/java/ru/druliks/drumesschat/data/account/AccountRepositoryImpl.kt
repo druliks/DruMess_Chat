@@ -15,6 +15,7 @@ class AccountRepositoryImpl(
         return accountCache.getToken().flatMap {
             accountRemote.login(email, password, it)
         }.onNext {
+            it.password=password
             accountCache.saveAccount(it)
         }
     }
@@ -52,6 +53,12 @@ class AccountRepositoryImpl(
 
 
     override fun editAccount(entity: AccountEntity): Either<Failure, AccountEntity> {
-        throw UnsupportedOperationException("Editing account is not supported")
+        return accountCache.getCurrentAccount().flatMap {
+            accountRemote.editUser(entity.id, entity.email, entity.name, entity.password,
+                entity.status, it.token, entity.image)
+        }.onNext {
+            entity.image = it.image
+            accountCache.saveAccount(entity)
+        }
     }
 }

@@ -7,6 +7,7 @@ import dagger.Module
 import dagger.multibindings.IntoMap
 import ru.druliks.drumesschat.presentation.viewmodel.AccountViewModel
 import ru.druliks.drumesschat.presentation.viewmodel.FriendsViewModel
+import ru.druliks.drumesschat.presentation.viewmodel.MediaViewModel
 import ru.druliks.drumesschat.presentation.viewmodel.ViewModelFactory
 
 //Класс-модуль для биндинга ViewModel-классов и их Фабрики.
@@ -24,4 +25,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(FriendsViewModel::class)
     abstract fun bindFriendsViewModel(friendsViewModel: FriendsViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MediaViewModel::class)
+    abstract fun bindMediaViewModel(mediaViewModel: MediaViewModel): ViewModel
 }

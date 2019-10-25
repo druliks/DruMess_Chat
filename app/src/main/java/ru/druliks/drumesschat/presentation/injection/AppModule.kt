@@ -8,8 +8,10 @@ import ru.druliks.drumesschat.data.account.AccountRemote
 import ru.druliks.drumesschat.data.account.AccountRepositoryImpl
 import ru.druliks.drumesschat.data.friends.FreindsRepositoryImpl
 import ru.druliks.drumesschat.data.friends.FriendsRemote
+import ru.druliks.drumesschat.data.media.MediaRepositoryImpl
 import ru.druliks.drumesschat.domain.account.AccountRepository
 import ru.druliks.drumesschat.domain.friends.FriendsRepository
+import ru.druliks.drumesschat.domain.media.MediaRepository
 import javax.inject.Singleton
 
 //Класс-модуль для предоставления зависимойстей контекста и репозитория
@@ -30,5 +32,11 @@ class AppModule(private val context: Context) {
     @Singleton
     fun provideFriendsRepository(remote: FriendsRemote,accountCache: AccountCache):FriendsRepository{
         return FreindsRepositoryImpl(accountCache,remote)
+    }
+
+    @Provides
+    @Singleton
+    fun provideMediaRepository(context: Context): MediaRepository {
+        return MediaRepositoryImpl(context)
     }
 }
