@@ -61,4 +61,8 @@ class AccountRepositoryImpl(
             accountCache.saveAccount(entity)
         }
     }
+
+    override fun checkAuth(): Either<Failure, Boolean> {
+        return accountCache.checkAuth()
+    }
 }

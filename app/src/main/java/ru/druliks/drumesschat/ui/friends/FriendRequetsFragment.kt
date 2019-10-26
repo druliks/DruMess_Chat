@@ -57,13 +57,10 @@ class FriendRequestsFragment : BaseListFragment() {
                 }
             }
         }
-    }
 
-    override fun onResume() {
-        super.onResume()
-        showProgress()
         friendsViewModel.getFriendRequests()
     }
+
 
     private fun handleFriendRequests(requests: List<FriendEntity>?) {
         hideProgress()

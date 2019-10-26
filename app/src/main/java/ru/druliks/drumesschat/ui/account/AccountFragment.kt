@@ -173,7 +173,7 @@ class AccountFragment : BaseFragment() {
     }
 
 
-    private fun updateProgress(progress: Boolean?) {
+    override fun updateProgress(progress: Boolean?) {
         if (progress == true) {
             groupProgress.visibility = View.VISIBLE
         } else {

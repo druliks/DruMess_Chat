@@ -7,7 +7,7 @@ import javax.inject.Inject
 //UseCase для полчения списка приглашений дружбы
 class GetFriendRequests @Inject constructor(
     private val friendsRepository: FriendsRepository
-):UseCase<List<FriendEntity>,None>() {
-    override suspend fun run(params: None)=friendsRepository.getFriendRequests()
+):UseCase<List<FriendEntity>,Boolean>() {
+    override suspend fun run(needFetch: Boolean)=friendsRepository.getFriendRequests(needFetch)
 
 }

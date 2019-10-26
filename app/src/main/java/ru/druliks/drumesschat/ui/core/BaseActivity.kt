@@ -38,10 +38,14 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(contentId)
+        setupContent()
 
         setSupportActionBar(toolbar)
         addFragment(savedInstanceState)
+    }
+
+    open fun setupContent(){
+        setContentView(contentId)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

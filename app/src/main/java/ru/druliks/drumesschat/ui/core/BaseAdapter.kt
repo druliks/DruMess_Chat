@@ -1,6 +1,6 @@
 package ru.druliks.drumesschat.ui.core
 
-import android.view.LayoutInflater
+
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -13,9 +13,8 @@ abstract class BaseAdapter<VH : BaseAdapter.BaseViewHolder> : RecyclerView.Adapt
 
     var onClick: OnClick? = null
 
-    abstract val layoutRes: Int
 
-    abstract fun createHolder(view: View, viewType: Int): VH
+    abstract fun createHolder(parent: ViewGroup): VH
 
 
     override fun getItemCount(): Int {
@@ -29,8 +28,7 @@ abstract class BaseAdapter<VH : BaseAdapter.BaseViewHolder> : RecyclerView.Adapt
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH {
-        val v = LayoutInflater.from(parent.context).inflate(layoutRes, parent, false)
-        return createHolder(v, viewType)
+        return createHolder(parent)
     }
 
 

@@ -7,6 +7,7 @@ import ru.druliks.drumesschat.data.account.AccountCache
 import ru.druliks.drumesschat.data.account.AccountRemote
 import ru.druliks.drumesschat.data.account.AccountRepositoryImpl
 import ru.druliks.drumesschat.data.friends.FreindsRepositoryImpl
+import ru.druliks.drumesschat.data.friends.FriendsCache
 import ru.druliks.drumesschat.data.friends.FriendsRemote
 import ru.druliks.drumesschat.data.media.MediaRepositoryImpl
 import ru.druliks.drumesschat.domain.account.AccountRepository
@@ -30,8 +31,8 @@ class AppModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun provideFriendsRepository(remote: FriendsRemote,accountCache: AccountCache):FriendsRepository{
-        return FreindsRepositoryImpl(accountCache,remote)
+    fun provideFriendsRepository(remote: FriendsRemote,accountCache: AccountCache, friendsCache: FriendsCache):FriendsRepository{
+        return FreindsRepositoryImpl(accountCache,remote,friendsCache)
     }
 
     @Provides

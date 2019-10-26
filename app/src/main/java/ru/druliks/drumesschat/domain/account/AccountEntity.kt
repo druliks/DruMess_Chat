@@ -3,7 +3,7 @@ package ru.druliks.drumesschat.domain.account
 import com.google.gson.annotations.SerializedName
 
 //Модельный класс, содержащий данные аккуанта
-class AccountEntity (
+data class AccountEntity (
     @SerializedName("user_id")
     var id: Long,
     var name: String,

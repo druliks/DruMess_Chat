@@ -43,6 +43,15 @@ abstract class BaseFragment : Fragment() {
     open fun onBackPressed() {}
 
 
+    open fun updateProgress(status: Boolean?) {
+        if (status == true) {
+            showProgress()
+        } else {
+            hideProgress()
+        }
+    }
+
+
     fun showProgress() = base { progressStatus(View.VISIBLE) }
 
     fun hideProgress() = base { progressStatus(View.GONE) }

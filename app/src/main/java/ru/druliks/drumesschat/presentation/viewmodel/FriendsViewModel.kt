@@ -21,12 +21,12 @@ class FriendsViewModel @Inject constructor(
     var approveFriendData: MutableLiveData<None> = MutableLiveData()
     var cancelFriendData: MutableLiveData<None> = MutableLiveData()
 
-    fun getFriends() {
-        getFriendsUseCase(None()) { it.either(::handleFailure, ::handleFriends) }
+    fun getFriends(needFetch: Boolean = false) {
+        getFriendsUseCase(needFetch) { it.either(::handleFailure) { handleFriends(it, !needFetch) } }
     }
 
-    fun getFriendRequests() {
-        getFriendRequestsUseCase(None()) { it.either(::handleFailure, ::handleFriendRequests) }
+    fun getFriendRequests(needFetch: Boolean = false) {
+        getFriendRequestsUseCase(needFetch) { it.either(::handleFailure) { handleFriendRequests(it, !needFetch) } }
     }
 
     fun deleteFriend(friendEntity: FriendEntity) {
@@ -46,12 +46,24 @@ class FriendsViewModel @Inject constructor(
     }
 
 
-    private fun handleFriends(friends: List<FriendEntity>) {
+    private fun handleFriends(friends: List<FriendEntity>, fromCache: Boolean) {
         friendsData.value = friends
+        updateProgress(false)
+
+        if (fromCache) {
+            updateProgress(true)
+            getFriends(true)
+        }
     }
 
-    private fun handleFriendRequests(friends: List<FriendEntity>) {
+    private fun handleFriendRequests(friends: List<FriendEntity>, fromCache: Boolean) {
         friendRequestsData.value = friends
+        updateProgress(false)
+
+        if (fromCache) {
+            updateProgress(true)
+            getFriendRequests(true)
+        }
     }
 
     private fun handleDeleteFriend(none: None?) {
